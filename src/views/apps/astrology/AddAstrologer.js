@@ -20,10 +20,8 @@ class AddAstrologer extends React.Component {
     super(props);
 
     // this.state = {
-
     //     dealer: "",
     //     desc: "",
-
     // };
     this.state = {
       dealerN: [],
@@ -140,14 +138,7 @@ class AddAstrologer extends React.Component {
                 </Col>
                 <Col lg="6" md="6" sm="6" className="mb-2">
                   <Label>Age</Label>
-                  <Input
-                    type="text"
-                    // name="desc"
-                    // value={this.state.desc}
-                    // onChange={this.changeHandler}
-                    // rows="3"
-                    placeholder="Enter Age"
-                  />
+                  <Input type="text" placeholder="Enter Age" />
                 </Col>
                 <Col lg="6" md="6" sm="6" className="mb-2">
                   <Label>Language</Label>

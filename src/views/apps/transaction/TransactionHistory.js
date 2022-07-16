@@ -11,17 +11,18 @@ import {
   DropdownItem,
   DropdownToggle,
 } from "reactstrap";
-// import axiosConfig from "../../../axiosConfig";
-import axios from "axios";
-import { ContextLayout } from "../../../utility/context/Layout";
-import { AgGridReact } from "ag-grid-react";
-import { Eye, Edit, Trash2, ChevronDown } from "react-feather";
-//import classnames from "classnames";
-import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
-import "../../../assets/scss/pages/users.scss";
-import { Route } from "react-router-dom";
 
-class VehicleTypes extends React.Component {
+import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
+import { Eye, Edit, Trash2, ChevronDown } from "react-feather";
+import { ContextLayout } from "../../../utility/context/Layout";
+import "../../../assets/scss/pages/users.scss";
+import { AgGridReact } from "ag-grid-react";
+import { Route } from "react-router-dom";
+import axios from "axios";
+//import classnames from "classnames";
+// import axiosConfig from "../../../axiosConfig";
+
+class TransactionHistory extends React.Component {
   state = {
     rowData: [],
     paginationPageSize: 20,
@@ -62,8 +63,8 @@ class VehicleTypes extends React.Component {
       },
 
       {
-        headerName: "Icon",
-        // field: "email	",
+        headerName: "Email",
+        field: "email	",
         filter: true,
         width: 200,
         cellRendererFramework: (params) => {
@@ -74,36 +75,21 @@ class VehicleTypes extends React.Component {
           );
         },
       },
-      //   {
-      //     headerName: "Mobile No.",
-      //     field: "mobile",
-      //     filter: true,
-      //     width: 200,
-      //     cellRendererFramework: (params) => {
-      //       return (
-      //         <div>
-      //           <span>{params.data.mobile}</span>
-      //         </div>
-      //       );
-      //     },
-      //   },
+
       {
-        headerName: "Status",
-        field: "status",
-        // filter: true,
-        width: 100,
+        headerName: "Mobile No.",
+        field: "mobile",
+        filter: true,
+        width: 200,
         cellRendererFramework: (params) => {
-          return params.value === "Confirm" ? (
-            <div className="badge badge-pill badge-success">
-              {params.data.status}
+          return (
+            <div>
+              <span>{params.data.mobile}</span>
             </div>
-          ) : params.value === "Pending" ? (
-            <div className="badge badge-pill badge-warning">
-              {params.data.status}
-            </div>
-          ) : null;
+          );
         },
       },
+
       {
         headerName: "Actions",
         field: "sortorder",
@@ -119,7 +105,7 @@ class VehicleTypes extends React.Component {
                     color="green"
                     onClick={() =>
                       history.push(
-                        `/app/userride/viewUserRide/${params.data._id}`
+                        `/app/customer/viewCustomer/${params.data._id}`
                       )
                     }
                   />
@@ -131,7 +117,7 @@ class VehicleTypes extends React.Component {
                     className="mr-50"
                     size="25px"
                     color="blue"
-                    onClick={() => history.push("/app/userride/editUserRide")}
+                    onClick={() => history.push("/app/customer/editCustomer")}
                   />
                 )}
               />
@@ -215,23 +201,23 @@ class VehicleTypes extends React.Component {
               <Row className="m-2">
                 <Col>
                   <h1 sm="6" className="float-left">
-                    Vehicle Types List
+                    Transaction History List
                   </h1>
                 </Col>
-                {/* <Col>
+                <Col>
                   <Route
                     render={({ history }) => (
                       <Button
                         className=" btn btn-danger float-right"
                         onClick={() =>
-                          history.push("/app/userride/addUserRide")
+                          history.push("/app/customer/addCustomer")
                         }
                       >
-                        Add Vehicle
+                        Add Customer
                       </Button>
                     )}
                   />
-                </Col> */}
+                </Col>
               </Row>
               <CardBody>
                 {this.state.rowData === null ? null : (
@@ -332,4 +318,4 @@ class VehicleTypes extends React.Component {
     );
   }
 }
-export default VehicleTypes;
+export default TransactionHistory;

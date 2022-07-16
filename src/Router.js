@@ -63,6 +63,16 @@ const ViewAstrologer = lazy(() =>
   import("./views/apps/astrology/ViewAstrologer")
 );
 
+//Wallet//
+const WalletManagement = lazy(() =>
+  import("./views/apps/wallet/WalletManagement")
+);
+
+//Transaction history//
+const TransactionHistory = lazy(() =>
+  import("./views/apps/transaction/TransactionHistory")
+);
+
 // setting
 
 const grid = lazy(() => import("./views/ui-elements/grid/Grid"));
@@ -331,6 +341,16 @@ class AppRouter extends React.Component {
             <AppRoute
               path="/app/astrology/viewAstrologer"
               component={ViewAstrologer}
+            />
+            {/* wallet */}
+            <AppRoute
+              path="/app/wallet/walletManagement"
+              component={WalletManagement}
+            />
+            {/* Transaction history */}
+            <AppRoute
+              path="/app/transaction/transactionHistory"
+              component={TransactionHistory}
             />
             {/* setting */}
             <AppRoute

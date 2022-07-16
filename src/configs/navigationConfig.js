@@ -142,17 +142,17 @@ const navigationConfig = [
         type: "item",
         icon: <Icon.Circle size={12} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/vehicle/vehicleTypes",
-      },
-      {
-        id: "walletManagement ",
-        title: "Wallet management ",
-        type: "item",
-        icon: <Icon.Circle size={12} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/vehicle/vehicleModel",
+        navLink: "/app/transaction/transactionHistory",
       },
     ],
+  },
+  {
+    id: "walletManagement ",
+    title: "Wallet management ",
+    type: "item",
+    icon: <Icon.User size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/app/wallet/walletManagement",
   },
 
   {

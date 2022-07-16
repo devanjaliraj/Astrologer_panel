@@ -40,7 +40,7 @@ export class AddNotification extends Component {
         //this.setState({ dealerN: response.data.data });
 
         // eslint-disable-next-line no-unused-expressions
-        response.data.data?.map((dealerp) => {
+        response.data?.data?.map((dealerp) => {
           let obj = {
             label: dealerp.dealer_name,
             value: dealerp._id,

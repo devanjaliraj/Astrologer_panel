@@ -11,17 +11,18 @@ import {
   DropdownItem,
   DropdownToggle,
 } from "reactstrap";
-// import axiosConfig from "../../../axiosConfig";
-import axios from "axios";
-import { ContextLayout } from "../../../utility/context/Layout";
-import { AgGridReact } from "ag-grid-react";
-import { Eye, Edit, Trash2, ChevronDown } from "react-feather";
-//import classnames from "classnames";
-import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
-import "../../../assets/scss/pages/users.scss";
-import { Route } from "react-router-dom";
 
-class VehicleModel extends React.Component {
+import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
+import { Eye, Edit, Trash2, ChevronDown } from "react-feather";
+import { ContextLayout } from "../../../utility/context/Layout";
+import "../../../assets/scss/pages/users.scss";
+import { AgGridReact } from "ag-grid-react";
+import { Route } from "react-router-dom";
+import axios from "axios";
+//import classnames from "classnames";
+// import axiosConfig from "../../../axiosConfig";
+
+class WalletManagement extends React.Component {
   state = {
     rowData: [],
     paginationPageSize: 20,
@@ -62,8 +63,8 @@ class VehicleModel extends React.Component {
       },
 
       {
-        headerName: "Icon",
-        // field: "email	",
+        headerName: "Email",
+        field: "email	",
         filter: true,
         width: 200,
         cellRendererFramework: (params) => {
@@ -74,36 +75,21 @@ class VehicleModel extends React.Component {
           );
         },
       },
-      //   {
-      //     headerName: "Mobile No.",
-      //     field: "mobile",
-      //     filter: true,
-      //     width: 200,
-      //     cellRendererFramework: (params) => {
-      //       return (
-      //         <div>
-      //           <span>{params.data.mobile}</span>
-      //         </div>
-      //       );
-      //     },
-      //   },
+
       {
-        headerName: "Status",
-        field: "status",
-        // filter: true,
-        width: 100,
+        headerName: "Mobile No.",
+        field: "mobile",
+        filter: true,
+        width: 200,
         cellRendererFramework: (params) => {
-          return params.value === "Confirm" ? (
-            <div className="badge badge-pill badge-success">
-              {params.data.status}
+          return (
+            <div>
+              <span>{params.data.mobile}</span>
             </div>
-          ) : params.value === "Pending" ? (
-            <div className="badge badge-pill badge-warning">
-              {params.data.status}
-            </div>
-          ) : null;
+          );
         },
       },
+
       {
         headerName: "Actions",
         field: "sortorder",
@@ -119,7 +105,7 @@ class VehicleModel extends React.Component {
                     color="green"
                     onClick={() =>
                       history.push(
-                        `/app/vehicle/viewVehicleModel/${params.data._id}`
+                        `/app/customer/viewCustomer/${params.data._id}`
                       )
                     }
                   />
@@ -131,9 +117,7 @@ class VehicleModel extends React.Component {
                     className="mr-50"
                     size="25px"
                     color="blue"
-                    onClick={() =>
-                      history.push("/app/vehicle/editVehicleModel")
-                    }
+                    onClick={() => history.push("/app/customer/editCustomer")}
                   />
                 )}
               />
@@ -217,7 +201,7 @@ class VehicleModel extends React.Component {
               <Row className="m-2">
                 <Col>
                   <h1 sm="6" className="float-left">
-                    Vehicle Model List
+                    Wallet Management List
                   </h1>
                 </Col>
                 <Col>
@@ -226,10 +210,10 @@ class VehicleModel extends React.Component {
                       <Button
                         className=" btn btn-danger float-right"
                         onClick={() =>
-                          history.push("/app/vehicle/addVehicleModel")
+                          history.push("/app/customer/addCustomer")
                         }
                       >
-                        Add Vehicle Model
+                        Add Customer
                       </Button>
                     )}
                   />
@@ -334,4 +318,4 @@ class VehicleModel extends React.Component {
     );
   }
 }
-export default VehicleModel;
+export default WalletManagement;
